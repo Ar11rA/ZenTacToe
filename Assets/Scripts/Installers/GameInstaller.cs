@@ -25,5 +25,7 @@ public class GameInstaller : MonoInstaller
     Container.DeclareSignal<GameStatusChangedSignal>();
     Container.DeclareSignal<AreaClickedSignal>();
     Container.DeclareSignal<CurrentMarkChangedSignal>();
+	Container.DeclareSignal<ResetSignal> ();
+	Container.DeclareSignal<RestartSignal> ();
   }
 }

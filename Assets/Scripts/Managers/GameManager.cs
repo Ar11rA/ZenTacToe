@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class GameManager : IGameManager
 {
 
@@ -48,6 +49,15 @@ public class GameManager : IGameManager
     return isGameOver;
   }
 
+  public void Reset() {
+		isGameOver = false;
+		gameStatus = "";
+		counter = 0;
+		currentMark = GameConstants.DEFAULT_MARK;
+		positions.Clear ();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+  }
+  
   public void OnAreaClicked(string clickedIndex)
   {
     gameStatus = "Area clicked " + clickedIndex;
@@ -66,11 +76,16 @@ public class GameManager : IGameManager
     {
       isGameOver = CheckGameStatus();
     }
-    if (isGameOver)
+	if (isGameOver)
     {
       gameStatus = "Player " + currentMark + " Won";
       return;
     }
+	if (counter == 9 && !isGameOver) {
+		isGameOver = true;
+		gameStatus = "Game ends in a draw";
+		return;
+	}
     currentMark = (currentMark == "x") ? "o" : "x";
   }
 

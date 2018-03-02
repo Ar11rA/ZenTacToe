@@ -7,9 +7,8 @@ using Zenject;
 public class GameStatusPresenter : MonoBehaviour
 {
 
-  public Text gameStatusText;
-
   private GameStatusChangedSignal _gameStatusChangedSignal;
+  public Text gameStatusText;
 
   [Inject]
   public void Init (GameStatusChangedSignal gameStatusChangedSignal) {
@@ -23,7 +22,9 @@ public class GameStatusPresenter : MonoBehaviour
   /// </summary>
   void Start()
   {
-      _gameStatusChangedSignal += UpdateScore;
+     Debug.Log ("GAME sta Pres started");
+	 gameStatusText = GetComponent<Text> ();
+     _gameStatusChangedSignal += UpdateScore;
   }
 
   public void UpdateScore(string status, bool isGameOver)

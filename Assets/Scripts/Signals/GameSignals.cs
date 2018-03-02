@@ -10,6 +10,8 @@ public class GameStatusChangedSignal : Signal<GameStatusChangedSignal, string, b
 
 public class CurrentMarkChangedSignal : Signal<CurrentMarkChangedSignal, string> {}
 
+public class RestartSignal : Signal<RestartSignal> {}
+public class ResetSignal : Signal<ResetSignal> {}
 
 // Presenter Signals
 public class ShowTextSignal : Signal<ShowTextSignal, string> { }

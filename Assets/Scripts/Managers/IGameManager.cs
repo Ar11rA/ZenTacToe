@@ -5,4 +5,5 @@ public interface IGameManager
   string GetGameStatus();
   string GetCurrentMark();
   bool GetIsGameOver();
+  void Reset();
 }
