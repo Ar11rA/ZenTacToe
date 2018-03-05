@@ -26,4 +26,9 @@ public class TextPresenter : MonoBehaviour
   {
     _textComponent.text = text;
   }
+
+  void OnDisable()
+  {
+    _showTextSignal -= ChangeText;
+  }
 }

@@ -62,7 +62,7 @@ public class ClickAreaPresenter : MonoBehaviour
         markObject = GameObject.Instantiate(oObj, Vector3.zero, Quaternion.identity);
         break;
     }
-    markObject.transform.parent = this.transform;
+    markObject.transform.SetParent(this.transform);
     markObject.rectTransform.localPosition = Vector3.zero;
     _areaClickedSignal.Fire(clickedIndex);
     isClicked = true;

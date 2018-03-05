@@ -11,7 +11,8 @@ public class GameStatusPresenter : MonoBehaviour
   public Text gameStatusText;
 
   [Inject]
-  public void Init (GameStatusChangedSignal gameStatusChangedSignal) {
+  public void Init(GameStatusChangedSignal gameStatusChangedSignal)
+  {
     _gameStatusChangedSignal = gameStatusChangedSignal;
   }
 
@@ -22,13 +23,18 @@ public class GameStatusPresenter : MonoBehaviour
   /// </summary>
   void Start()
   {
-     Debug.Log ("GAME sta Pres started");
-	 gameStatusText = GetComponent<Text> ();
-     _gameStatusChangedSignal += UpdateScore;
+    Debug.Log("GAME sta Pres started");
+    gameStatusText = GetComponent<Text>();
+    _gameStatusChangedSignal += UpdateScore;
   }
 
   public void UpdateScore(string status, bool isGameOver)
   {
     gameStatusText.text = status;
+  }
+
+  void OnDisable()
+  {
+    _gameStatusChangedSignal -= UpdateScore;
   }
 }
